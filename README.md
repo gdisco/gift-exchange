@@ -14,5 +14,6 @@ Todos:
 
 Example Compilation:
 
-javac src/com/candybutton/christmas/giftexchange/*.java
-java src.com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt
+`javac src/com/candybutton/christmas/giftexchange/*.java`
+
+`java src.com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt`
