@@ -31,7 +31,6 @@ public class PeoplePickerController {
 				}
 			} while (roundSuccess == false);
 		}
-	
 		
 		try {
 			writePeople(people, this.categoryFormatter, OUTDIR);
