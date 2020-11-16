@@ -15,8 +15,8 @@ Todos:
 * Backtrack if stuck
 * Allow for more than one disallowed person per person
 
-Example Compilation:
+Example Compilation (from the `gift-exchange/src` directory):
 
-`javac src/com/candybutton/christmas/giftexchange/*.java`
+`javac com/candybutton/christmas/giftexchange/*.java`
 
-`java src.com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt`
+`java com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt`
