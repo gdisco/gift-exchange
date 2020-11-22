@@ -20,7 +20,7 @@ public class PersonTest {
 	@Before
 	public void setup() {
 		person = new Person(1, "Alice");
-		person.setSigOtherName("Bob");
+		person.addToBlockList("Bob");
 	}
 	
 	@Test
@@ -95,8 +95,8 @@ public class PersonTest {
 	public void twoPersonObjects_identicalAttributes_Equal() {
 		Person a = new Person(1, "Alice");
 		Person b = new Person(1, "Alice");
-		a.setSigOtherName("Bob");
-		b.setSigOtherName("Bob");
+		a.addToBlockList("Bob");
+		b.addToBlockList("Bob");
 		assert (a.equals(b));
 	}
 	

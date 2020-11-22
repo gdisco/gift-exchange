@@ -19,24 +19,28 @@ public class PeoplePickerUtils {
 	public static List<Person> readPeople(String peopleFile) throws IOException {
 		
 		BufferedReader reader = new BufferedReader(new FileReader(peopleFile));
-		
-		String line = reader.readLine();	
 		List<Person> people = new ArrayList<Person>();
-		if (line != null) {
-			String[] names = line.split(",");
-			for (int i = 0; i < names.length; i++) {
-				if (names[i].contains(":")) {
-					String[] pair = names[i].split(":");
-					Person p = new Person(i, pair[0]);
-					p.setSigOtherName(pair[1]);
-					people.add(p);
-				} else {
-					people.add(new Person(i, names[i]));
+
+		try {
+			int id = 0;
+			while (true) {
+				String line = reader.readLine();
+				if (line == null)
+					break;
+				String[] names = line.split(":");
+				Person p = new Person(id++, names[0]);
+				if (names.length > 1) {
+					String[] blocked = names[1].split(",");
+					for (String name : blocked) {
+						p.addToBlockList(name);
+					}
 				}
+				people.add(p);
 			}
+		} finally {
+			reader.close();
 		}
-		
-		reader.close();
+
 		return people;
 	}
 	

@@ -8,22 +8,22 @@ import java.util.stream.Collectors;
 public class Person {
 	private int id;
 	private String name;
-	private Optional<String> sigOtherName;
+	private List<String> blockList;
 	private List<Person> recipients;
 	
 	public Person(int id, String name) {
 		this.id = id;
 		this.name = name;
 		this.recipients = new ArrayList<Person>();
-		this.sigOtherName = Optional.empty();
+		this.blockList = new ArrayList<String>();
 	}
 	
 	public String getName() {
 		return this.name;
 	}
 	
-	public void setSigOtherName(String p) {
-		this.sigOtherName = Optional.of(p);
+	public void addToBlockList(String p) {
+		this.blockList.add(p);
 	}
 	
 	public List<Person> getRecipients() {
@@ -54,7 +54,7 @@ public class Person {
 		boolean isValid = true;
 		if (this.id == newRecipient.id) {
 			isValid = false; 
-		} else if (this.sigOtherName.isPresent() && this.sigOtherName.get().equals(newRecipient.getName())) {
+		} else if (this.blockList.contains(newRecipient.getName())) {
 			isValid = false;
 		} else {
 			for (int i = 0; i < category; i++) {
@@ -82,7 +82,7 @@ public class Person {
         } 
           
         Person p = (Person) o; 
-		return id == p.id && name.equals(p.name) && sigOtherName.equals(p.sigOtherName);
+		return id == p.id && name.equals(p.name) && blockList.equals(p.blockList);
 	}
 	
 	//Idea from effective Java : Item 9
@@ -90,7 +90,9 @@ public class Person {
     public int hashCode() {
         int result = 17;
         result = 31 * result + name.hashCode();
-        result = 31 * result + sigOtherName.hashCode();
+        for (String name : blockList) {
+        	result = 31 * result + name.hashCode();
+		}
         result = 31 * result + id;
         return result;
     }
