@@ -1,1 +1,7 @@
-Sam,Peter,Steve,Rhodey,Bruce,Tony:Pepper,Pepper:Tony
+Sam
+Peter
+Steve
+Rhodey
+Bruce
+Tony:Pepper
+Pepper:Tony
