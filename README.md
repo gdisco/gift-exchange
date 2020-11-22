@@ -13,7 +13,6 @@ Known issues:
 Todos:
 * Automatically send emails to gift-givers
 * Backtrack if stuck
-* Allow for more than one disallowed person per person
 
 Example Compilation (from the `gift-exchange/src` directory):
 
