@@ -43,9 +43,28 @@ public class PeoplePickerController {
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 			
 		PeoplePickerController controller = new PeoplePickerController();	
-		
-		// Look ma, I can inject dependencies.
-		controller.categoryFormatter = new GiftingCategoryPersonFormatterClassic();
+
+		// Good lord will somebody please turn this into a sensible config file
+		if (args.length == 0) {
+			System.out.println("Missing Participants file, see README and PeopleFile.txt for an example");
+			return;
+ 		} else if (args.length == 1) {
+			System.out.println("Using default gift categories wear/read/want/need");
+			controller.categoryFormatter = new GiftingCategoryPersonFormatterClassic();
+		} else if (args.length >= 2) {
+			String category = args[1];
+			if (category.toLowerCase().equals("experience")) {
+				System.out.println("Using gift categories wear/read/want/experience");
+				controller.categoryFormatter = new GiftingCategoryPersonFormatterExperience();
+			} else if (category.toLowerCase().equals("pandemic")) {
+				System.out.println("Using gift categories eat/want/feat/flaunt");
+				controller.categoryFormatter = new GiftingCategoryPersonFormatterPandemic();
+			} else {
+				System.out.println("Using default gift categories wear/read/want/need");
+				controller.categoryFormatter = new GiftingCategoryPersonFormatterClassic();
+                        }
+		}
+
 		controller.peopleFile = args[0];
 		controller.pickPeople();
 		
