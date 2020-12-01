@@ -26,6 +26,10 @@ also try
 
 `java com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt experience`
 
-and 
+or
+
+`java com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt books`
+
+or
 
 `java com.candybutton.christmas.giftexchange/PeoplePickerController ../PeopleFile.txt pandemic`
