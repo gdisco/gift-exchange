@@ -59,6 +59,9 @@ public class PeoplePickerController {
 			} else if (category.toLowerCase().equals("pandemic")) {
 				System.out.println("Using gift categories eat/want/feat/flaunt");
 				controller.categoryFormatter = new GiftingCategoryPersonFormatterPandemic();
+			} else if (category.toLowerCase().equals("books")) {
+				System.out.println("Using gift category books");
+				controller.categoryFormatter = new GiftingCategoryPersonFormatterBooks();
 			} else {
 				System.out.println("Using default gift categories wear/read/want/need");
 				controller.categoryFormatter = new GiftingCategoryPersonFormatterClassic();
