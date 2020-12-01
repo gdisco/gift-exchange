@@ -45,7 +45,7 @@ public class PeoplePickerController {
 		PeoplePickerController controller = new PeoplePickerController();	
 		
 		// Look ma, I can inject dependencies.
-		controller.categoryFormatter = new GiftingCategoryPersonFormatterPandemic();
+		controller.categoryFormatter = new GiftingCategoryPersonFormatterClassic();
 		controller.peopleFile = args[0];
 		controller.pickPeople();
 		
