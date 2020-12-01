@@ -14,7 +14,7 @@ public class PeoplePickerController {
 	public GiftingCategoryPersonFormatter categoryFormatter;
 	public String peopleFile;
 	
-	public final String OUTDIR = "/Users/discog/Desktop/ButtonChristmasGiftExchange";
+	public final String OUTDIR = ".";
 	
 	public void pickPeople() throws IOException {
 		List<Person> people = readPeople(peopleFile);
@@ -49,6 +49,6 @@ public class PeoplePickerController {
 		controller.peopleFile = args[0];
 		controller.pickPeople();
 		
-		System.out.println("Done! outdir is: " + controller.OUTDIR);
+		System.out.println("Done! Output files are in: " + System.getProperty("user.dir"));
 	}
 }
