@@ -7,7 +7,7 @@ import java.util.List;
 import static com.candybutton.christmas.giftexchange.PeoplePickerUtils.*;
 
 /* PeoplePicker.java
- * Divides up the family for the annual gift exchange
+ * Divides up participants for a gift exchange
  */
 public class PeoplePickerController {
 	
